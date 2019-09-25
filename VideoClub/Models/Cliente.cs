@@ -13,7 +13,7 @@ namespace VideoClub.Models
         private string dni { get; set; }
         private string domicilio { get; set; }
         private string email { get; set; }
-
+        private string prueba { get; set; }
         private List<Alquiler> alquileres { get; set; }
     }
 }
