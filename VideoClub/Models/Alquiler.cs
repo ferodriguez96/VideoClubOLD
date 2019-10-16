@@ -7,12 +7,12 @@ namespace VideoClub.Models
 {
     public class Alquiler
     {
-        private int id { get; set; }
-        private Pelicula pelicula { get; set; }
-        private Cliente cliente { get; set; }
-        private DateTime fechaAlta { get; set; }//fecha de alquiler
-        private DateTime fechaVto { get; set; }//Cuando deberia devolverlo
-        private float precioOriginal { get; set; }
-        private Devolucion devolucion { get; set;  }
+        public int Id { get; set; }
+        public Pelicula Pelicula { get; set; }
+        public Cliente Cliente { get; set; }
+        public DateTime FechaAlta { get; set; }//fecha de alquiler
+        public DateTime FechaVto { get; set; }//Cuando deberia devolverlo
+        public float PrecioOriginal { get; set; }
+        public Devolucion Devolucion { get; set;  }
     }
 }

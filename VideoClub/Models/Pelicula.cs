@@ -18,12 +18,12 @@ namespace VideoClub.Models
         private int Stock { get; set; }
         private List<Alquiler> alquileres { get; set; }
         */
-        private string id { get; set; }
-        private string titulo { get; set; }
-        private int duracion { get; set; } //En minutos
-        private int stock { get; set; }
-        private int anioLanzamiento { get; set; }
-        private Categoria categoria { get; set; } //En general, nada que ver con el genero de la pelicula
-        private PeliculaGenero peliculaGeneros { get; set; }//Drama, Comedia, Terror...
+        public string Id { get; set; }
+        public string Titulo { get; set; }
+        public int Duracion { get; set; } //En minutos
+        public int Stock { get; set; }
+        public int AnioLanzamiento { get; set; }
+        public Categoria Categoria { get; set; } //En general, nada que ver con el genero de la pelicula
+        public IEnumerable <PeliculaGenero> PeliculasGeneros { get; set; }//Drama, Comedia, Terror...
     }
 }

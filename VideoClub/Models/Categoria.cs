@@ -7,11 +7,11 @@ namespace VideoClub.Models
 {
     public class Categoria
     {
-        private string id { get; set; }
-        private string descripcion { get; set; }
-        private string disenio { get; set; } //? supongo aca puedo clavarle el color de la cajita y que se refleje en el front-end
-        private int diasDeAlquiler { get; set; }
-        private float precio { get; set; }
-        private List<Pelicula> peliculas { get; set; }
+        public string Id { get; set; }
+        public string Descripcion { get; set; }
+        public string Disenio { get; set; } //? supongo aca puedo clavarle el color de la cajita y que se refleje en el front-end
+        public int DiasDeAlquiler { get; set; }
+        public float Precio { get; set; }
+        public List<Pelicula> Peliculas { get; set; }
     }
 }

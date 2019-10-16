@@ -5,15 +5,14 @@ using System.Threading.Tasks;
 
 namespace VideoClub.Models
 {
-    public class Cliente : Usuario
+    public class Cliente
     {
-        private int id { get; set; }
-        private string nombre { get; set; }
-        private string apellido { get; set; }
-        private string dni { get; set; }
-        private string domicilio { get; set; }
-        private string email { get; set; }
-        //private string prueba { get; set; }
-        private List<Alquiler> alquileres { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Dni { get; set; }
+        public string Domicilio { get; set; }
+        public string Email { get; set; }
+        public List<Alquiler> Alquileres { get; set; }
     }
 }

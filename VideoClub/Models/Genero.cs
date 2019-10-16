@@ -7,9 +7,9 @@ namespace VideoClub.Models
 {
     public class Genero
     {
-        private string id { get; set; }
-        private string descripcion { get; set; }
-        private PeliculaGenero peliculaGenero { get; set; }
+        public string Id { get; set; }
+        public string Descripcion { get; set; }
+        public IEnumerable <PeliculaGenero> PeliculasGeneros { get; set; }
 
     }
 }
