@@ -17,11 +17,12 @@ namespace VideoClub.DataBase
             }
             Cliente cli = new Cliente()
             {
-                Id = 2,
+                Id = Guid.NewGuid(),
                 Nombre = "rodolfo",
                 Apellido = "gomez",
                 Dni ="test",
-                Domicilio="calle falsa 123"
+                Domicilio="calle falsa 123",
+                Email = "test@test.com"
             };
             context.Clientes.Add(cli);
             context.SaveChanges();

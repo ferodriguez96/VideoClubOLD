@@ -18,7 +18,7 @@ namespace VideoClub.Controllers
         }
         public IActionResult Index()
         {
-            var p = _Context.Clientes.Find(2);
+            var p = _Context.Clientes.FirstOrDefault(x => x.Email == "test@test.com");
             return View();
         }
 

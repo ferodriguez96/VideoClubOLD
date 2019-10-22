@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VideoClub.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace VideoClub.DataBase
 {
@@ -17,6 +18,8 @@ namespace VideoClub.DataBase
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Cliente>().Property(x => x.Id).ValueGeneratedNever();
+
         }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
