@@ -23,6 +23,8 @@ namespace VideoClub.Models
         [Required(ErrorMessage = "{0} es mandatorio.")]
         public int AnioLanzamiento { get; set; }
 
+        public string UnDatoDeTest { get; set; }
+
         public Guid CategoriaId { get; set; }
 
         public virtual Categoria Categoria { get; set; } //En general, nada que ver con el genero de la pelicula
