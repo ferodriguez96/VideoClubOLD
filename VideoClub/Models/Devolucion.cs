@@ -7,7 +7,7 @@ namespace VideoClub.Models
 {
     public class Devolucion
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public DateTime FechaDevolucion { get; set; }
         public float PrecioFinal { get; set; }
     }

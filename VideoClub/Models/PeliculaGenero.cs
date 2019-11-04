@@ -7,7 +7,7 @@ namespace VideoClub.Models
 {
     public class PeliculaGenero
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public int PeliculaId { get; set; }
         public int GeneroId { get; set; }
         public Pelicula Pelicula { get; set; }

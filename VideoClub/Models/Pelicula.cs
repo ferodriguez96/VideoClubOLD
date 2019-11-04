@@ -18,7 +18,7 @@ namespace VideoClub.Models
         private int Stock { get; set; }
         private List<Alquiler> alquileres { get; set; }
         */
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string Titulo { get; set; }
         public int Duracion { get; set; } //En minutos
         public int Stock { get; set; }

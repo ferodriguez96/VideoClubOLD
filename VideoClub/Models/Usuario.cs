@@ -7,7 +7,7 @@ namespace VideoClub.Models
 {
     public abstract class Usuario
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
     }

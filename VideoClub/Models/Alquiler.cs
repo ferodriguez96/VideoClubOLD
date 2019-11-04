@@ -7,7 +7,7 @@ namespace VideoClub.Models
 {
     public class Alquiler
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public Pelicula Pelicula { get; set; }
         public Cliente Cliente { get; set; }
         public DateTime FechaAlta { get; set; }//fecha de alquiler
