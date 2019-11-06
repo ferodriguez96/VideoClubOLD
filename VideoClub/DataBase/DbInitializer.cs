@@ -40,7 +40,8 @@ namespace VideoClub.DataBase
                 Stock = 5,
                 Categoria = azul
             };
-            context.Clientes.Add(cli);
+            //context.Clientes.Add(cli);
+            //context.Categorias.Add(azul);
             context.SaveChanges();
         }
     }
