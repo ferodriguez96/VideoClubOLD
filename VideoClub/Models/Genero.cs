@@ -8,7 +8,10 @@ namespace VideoClub.Models
     {
         [Key]
         public Guid Id { get; set; }
+        [Required]
+        [MaxLength(50)]
         public string Descripcion { get; set; }
+
         public virtual ICollection<PeliculaGenero> PeliculasGeneros { get; set; }
     }
 }
