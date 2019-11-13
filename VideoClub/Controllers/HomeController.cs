@@ -11,32 +11,7 @@ namespace VideoClub.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly VideoClubDbContext _Context;
-        public HomeController (VideoClubDbContext context)
-        {
-            _Context = context;
-        }
         public IActionResult Index()
-        {
-            //var p = _Context.Clientes.Find(2);
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }

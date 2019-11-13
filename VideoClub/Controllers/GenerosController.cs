@@ -10,11 +10,11 @@ using VideoClub.Models;
 
 namespace VideoClub.Controllers
 {
-    public class GeneroController : Controller
+    public class GenerosController : Controller
     {
         private readonly VideoClubDbContext _context;
 
-        public GeneroController(VideoClubDbContext context)
+        public GenerosController(VideoClubDbContext context)
         {
             _context = context;
         }
