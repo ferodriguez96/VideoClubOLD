@@ -23,7 +23,7 @@ namespace VideoClub.Models
         public int Duracion { get; set; } //En minutos
         public int Stock { get; set; }
         public int AnioLanzamiento { get; set; }
-        public Categoria Categoria { get; set; } //En general, nada que ver con el genero de la pelicula
-        public IEnumerable <PeliculaGenero> PeliculasGeneros { get; set; }//Drama, Comedia, Terror...
+        public virtual Categoria Categoria { get; set; } //En general, nada que ver con el genero de la pelicula
+        public virtual IEnumerable <PeliculaGenero> PeliculasGeneros { get; set; }//Drama, Comedia, Terror...
     }
 }
