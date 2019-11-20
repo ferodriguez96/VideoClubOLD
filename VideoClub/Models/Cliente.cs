@@ -24,6 +24,8 @@ namespace VideoClub.Models
         [EmailAddress]
         public string Email { get; set; }
 
+        public byte[] Password { get; set; }
+
         public virtual ICollection<Alquiler> Alquileres { get; set; }
     }
 }

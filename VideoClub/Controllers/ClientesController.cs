@@ -20,9 +20,21 @@ namespace VideoClub.Controllers
         }
 
         // GET: Clientes
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string searchBy = "", string search = "")
         {
-            return View(await _context.Clientes.ToListAsync());
+            var model = _context.Clientes.AsEnumerable();
+
+            if (!string.IsNullOrWhiteSpace(searchBy) && !string.IsNullOrWhiteSpace(search))
+            {
+                switch(searchBy)
+                {
+                    case "Nombre":
+                        model = model.Where(x => x.Nombre.Contains(search));
+                        break;
+                }
+            }
+
+            return View(model);
         }
 
         // GET: Clientes/Details/5

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using VideoClub.Models;
 
 namespace VideoClub.Controllers
 {
+    [Authorize]
     public class PeliculasController : Controller
     {
         private readonly VideoClubDbContext _context;
@@ -19,7 +21,6 @@ namespace VideoClub.Controllers
             _context = context;
         }
 
-        // GET: Peliculas
         public async Task<IActionResult> Index(string titulo = "", Guid? generoId = null)
         {
             var peliculas = await _context

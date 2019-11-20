@@ -29,15 +29,36 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">VideoClub</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Peliculas" asp-action="Index">Peliculas</a></li>
-                    <li><a asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a></li>
-                    <li><a asp-area="" asp-controller="Alquileres" asp-action="Index">Alquileres</a></li>
-                    <li><a asp-area="" asp-controller="Devoluciones" asp-action="Index">Devoluciones</a></li>
-                    <li><a asp-area="" asp-controller="Generos" asp-action="Index">Generos</a></li>
-                    <li><a asp-area="" asp-controller="Categorias" asp-action="Index">Categorias</a></li>
+                <ul class="nav navbar-nav mr-auto">
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-controller="Peliculas" asp-action="Index">Películas</a></li>
+                    <li><a asp-controller="Clientes" asp-action="Index">Clientes</a></li>
+                    <li><a asp-controller="Alquileres" asp-action="Index">Alquileres</a></li>
+                    <li><a asp-controller="Devoluciones" asp-action="Index">Devoluciones</a></li>
+                    <li><a asp-controller="Generos" asp-action="Index">Géneros</a></li>
+                    <li><a asp-controller="Categorias" asp-action="Index">Categorías</a></li>
                 </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@User.Identity.Name <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <form method="post" asp-controller="Account" asp-action="Logout">
+                                        <button class="btn btn-link" type="submit">Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+                    }
+                </ul>
+
             </div>
         </div>
     </nav>

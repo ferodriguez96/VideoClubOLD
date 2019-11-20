@@ -16,15 +16,19 @@ namespace VideoClub.DataBase
                 return;   // DB has been seeded
             }
 
+            byte[] data = System.Text.Encoding.ASCII.GetBytes("123456");
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
 
-            //context.Clientes.Add(new Cliente()
-            //{
-            //    Id = Guid.NewGuid(),
-            //    Nombre = "rodolfo",
-            //    Apellido = "gomez",
-            //    Dni = "test",
-            //    Domicilio = "calle falsa 123"
-            //});
+            context.Clientes.Add(new Cliente()
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "rodolfo",
+                Apellido = "gomez",
+                Dni = "15231521",
+                Email = "rgomez@mail.com",
+                Password = data,
+                Domicilio = "calle falsa 123"
+            });
 
             var azul = new Categoria()
             {
