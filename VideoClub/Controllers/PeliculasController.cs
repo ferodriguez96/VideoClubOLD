@@ -20,13 +20,24 @@ namespace VideoClub.Controllers
         }
 
         // GET: Peliculas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string titulo = "", Guid? generoId = null)
         {
             var peliculas = await _context
                 .Peliculas
                 .Include(p => p.Categoria)
                 .Include(p => p.PeliculaGeneros).ThenInclude(pg => pg.Genero)
+                .Where(p =>
+                    (string.IsNullOrWhiteSpace(titulo) || p.Titulo.Contains(titulo)) &&
+                    (!generoId.HasValue || p.PeliculaGeneros.Any(pg => pg.GeneroId == generoId)))
                 .ToListAsync();
+
+            var generos = _context
+                .Generos
+                .Select(x => new SelectListItem(x.Descripcion, x.Id.ToString()))
+                .ToList()
+                .Prepend(new SelectListItem("Elegir género", ""));
+
+            ViewData["GeneroId"] = new SelectList(generos, "Value", "Text", generoId);
 
             return View(peliculas);
         }
@@ -67,12 +78,17 @@ namespace VideoClub.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Titulo,Duracion,Stock,AnioLanzamiento,CategoriaId,generos")] Pelicula pelicula, List<Guid> generos)
         {
+            if (pelicula.AnioLanzamiento > DateTime.Now.Year)
+            {
+                ModelState.AddModelError("AnioLanzamiento", "El año de lanzamiento no puede ser mayor al año actual");
+            }
+
             if (ModelState.IsValid)
             {
                 pelicula.Id = Guid.NewGuid();
                 _context.Add(pelicula);
 
-                foreach(var genero in generos)
+                foreach (var genero in generos)
                 {
                     _context.Add(new PeliculaGenero() { Id = Guid.NewGuid(), PeliculaId = pelicula.Id, GeneroId = genero });
                 }

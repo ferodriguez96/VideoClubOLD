@@ -9,6 +9,16 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form asp-action="Index" asp-controller="Peliculas" method="get">
+    <label label-for="generoId" class="control-label"></label>
+    <select name="generoId" class="form-control" asp-items="ViewBag.GeneroId"></select>
+    <label label-for="titulo" class="control-label"></label>
+    <input type="text" name="titulo" class="form-control" />
+
+    <button type="submit" class="btn btn-primary">
+        Buscar
+    </button>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -34,32 +44,33 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duracion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnioLanzamiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria.Descripcion)
-            </td>
-            <td>
-                @string.Join(", ", item.PeliculaGeneros.Select(x => x.Genero.Descripcion).ToArray())
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr style="background-color: @item.Categoria.Disenio">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duracion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnioLanzamiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.Descripcion)
+                </td>
+                <td>
+                    @string.Join(", ", item.PeliculaGeneros.Select(x => x.Genero.Descripcion).ToArray())
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
