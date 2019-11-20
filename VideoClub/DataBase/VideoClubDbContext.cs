@@ -13,6 +13,11 @@ namespace VideoClub.DataBase
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Cliente>().HasIndex(u => u.Email).IsUnique();
+        }
+
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Pelicula> Peliculas { get; set; }
