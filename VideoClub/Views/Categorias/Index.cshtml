@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Descripcion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Disenio)
+                @Html.DisplayNameFor(model => model.Color)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DiasDeAlquiler)
@@ -33,8 +33,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Descripcion)
             </td>
-            <td style="background-color:@Html.DisplayFor(modelItem => item.Disenio)">
-                &nbsp;
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DiasDeAlquiler)

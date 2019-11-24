@@ -15,6 +15,16 @@ namespace VideoClub.DataBase
             {
                 return;   // DB has been seeded
             }
+
+            Categoria Estrenos = new Categoria()
+            {
+                Id = Guid.NewGuid(),
+                Color = "red",
+                DiasDeAlquiler = 2,
+                Precio = 150,
+                Descripcion = "Estrenos"
+            };
+
             Cliente cli = new Cliente()
             {
                 Id = Guid.NewGuid(),
@@ -26,7 +36,7 @@ namespace VideoClub.DataBase
             Categoria azul = new Categoria()
             {
                 Id = Guid.NewGuid(),
-                Disenio = "blue",
+                Color = "blue",
                 DiasDeAlquiler = 7,
                 Precio = 100,
                 Descripcion = ""
@@ -40,9 +50,13 @@ namespace VideoClub.DataBase
                 Stock = 5,
                 Categoria = azul
             };
-            //context.Clientes.Add(cli);
-            //context.Categorias.Add(azul);
+            context.Clientes.Add(cli);
+            context.Categorias.Add(azul);
+
+            context.Categorias.Add(Estrenos);
             context.SaveChanges();
+
+
         }
     }
 }
