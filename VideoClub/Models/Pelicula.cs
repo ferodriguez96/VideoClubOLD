@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,12 +20,19 @@ namespace VideoClub.Models
         private int Stock { get; set; }
         private List<Alquiler> alquileres { get; set; }
         */
+        [Key]
         public Guid Id { get; set; }
         public string Titulo { get; set; }
         public int Duracion { get; set; } //En minutos
         public int Stock { get; set; }
         public int AnioLanzamiento { get; set; }
-        public Categoria Categoria { get; set; } //En general, nada que ver con el genero de la pelicula
-        public IEnumerable <PeliculaGenero> PeliculasGeneros { get; set; }//Drama, Comedia, Terror...
+
+        [ForeignKey("Categoria")]
+        public virtual Guid CategoriaId { get; set; }
+        public virtual Categoria Categoria { get; set; } //Categoria; Estreno, Clasicas, ATP
+
+        public virtual ICollection<Alquiler> Alquileres { get; set; }
+
+        public virtual ICollection <PeliculaGenero> PeliculasGeneros { get; set; }//Drama, Comedia, Terror...
     }
 }

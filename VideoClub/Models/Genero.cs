@@ -8,10 +8,13 @@ namespace VideoClub.Models
 {
     public class Genero
     {
-        [Key()]
+        [Key]
         public Guid Id { get; set; }
+        [Required]
+        [MaxLength(50)]
         public string Descripcion { get; set; }
-        public IEnumerable <PeliculaGenero> PeliculasGeneros { get; set; }
+
+        public virtual ICollection<PeliculaGenero> PeliculasGeneros { get; set; }
 
     }
 }
