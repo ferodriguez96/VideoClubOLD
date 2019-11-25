@@ -16,24 +16,7 @@ namespace VideoClub.DataBase
                 return;   // DB has been seeded
             }
 
-            Categoria Estrenos = new Categoria()
-            {
-                Id = Guid.NewGuid(),
-                Color = "red",
-                DiasDeAlquiler = 2,
-                Precio = 150,
-                Descripcion = "Estrenos"
-            };
-
-            Cliente cli = new Cliente()
-            {
-                Id = Guid.NewGuid(),
-                Nombre = "rodolfo",
-                Apellido = "gomez",
-                Dni ="test",
-                Domicilio="calle falsa 123"
-            };
-            Categoria azul = new Categoria()
+            var azul = new Categoria()
             {
                 Id = Guid.NewGuid(),
                 Color = "blue",
@@ -41,7 +24,25 @@ namespace VideoClub.DataBase
                 Precio = 100,
                 Descripcion = ""
             };
-            Pelicula titanic = new Pelicula()
+
+            context.Categorias.Add(azul);
+
+            var drama = new Genero()
+            {
+                Id = Guid.NewGuid(),
+                Descripcion = "Drama"
+            };
+
+            var terror = new Genero()
+            {
+                Id = Guid.NewGuid(),
+                Descripcion = "Terror"
+            };
+
+            context.Generos.Add(drama);
+            context.Generos.Add(terror);
+
+            var titanic = new Pelicula()
             {
                 Id = Guid.NewGuid(),
                 Titulo = "Titanic",
@@ -50,12 +51,55 @@ namespace VideoClub.DataBase
                 Stock = 5,
                 Categoria = azul
             };
-            context.Clientes.Add(cli);
-            context.Categorias.Add(azul);
 
-            context.Categorias.Add(Estrenos);
+            context.Peliculas.Add(titanic);
+
+            context.PeliculasGeneros.Add(new PeliculaGenero()
+            {
+                Id = Guid.NewGuid(),
+                Genero = drama,
+                Pelicula = titanic
+            });
+
+            Pelicula it = new Pelicula()
+            {
+                Id = Guid.NewGuid(),
+                Titulo = "It",
+                AnioLanzamiento = 1990,
+                Duracion = 120,
+                Stock = 10,
+                Categoria = azul
+            };
+
+            context.Peliculas.Add(it);
+
+            context.PeliculasGeneros.Add(new PeliculaGenero()
+            {
+                Id = Guid.NewGuid(),
+                Genero = terror,
+                Pelicula = it
+            });
+
+            Pelicula viernes13 = new Pelicula()
+            {
+                Id = Guid.NewGuid(),
+                Titulo = "Viernes 13",
+                AnioLanzamiento = 1987,
+                Duracion = 116,
+                Stock = 17,
+                Categoria = azul
+            };
+
+            context.Peliculas.Add(viernes13);
+
+            context.PeliculasGeneros.Add(new PeliculaGenero()
+            {
+                Id = Guid.NewGuid(),
+                Genero = terror,
+                Pelicula = viernes13
+            });
+
             context.SaveChanges();
-
 
         }
     }

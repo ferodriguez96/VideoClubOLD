@@ -12,9 +12,6 @@ namespace VideoClub.DataBase
         public VideoClubDbContext(DbContextOptions<VideoClubDbContext> options) : base(options)
         {
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Cliente>().HasIndex(u => u.Email).IsUnique();
