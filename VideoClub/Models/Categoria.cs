@@ -8,7 +8,6 @@ namespace VideoClub.Models
 {
     public class Categoria
     {
-        [Key]
         public Guid Id { get; set; }
         public string Descripcion { get; set; }
         public string Color { get; set; } //? supongo aca puedo clavarle el color de la cajita y que se refleje en el front-end

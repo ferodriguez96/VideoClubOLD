@@ -15,6 +15,5 @@ namespace VideoClub.Models
         public string Descripcion { get; set; }
 
         public virtual ICollection<PeliculaGenero> PeliculasGeneros { get; set; }
-
     }
 }
