@@ -10,7 +10,7 @@ namespace VideoClub.Models
     {
         public Guid Id { get; set; }
         public string Descripcion { get; set; }
-        public string Color { get; set; } //? supongo aca puedo clavarle el color de la cajita y que se refleje en el front-end
+        public string Disenio { get; set; } //? supongo aca puedo clavarle el color de la cajita y que se refleje en el front-end
         public int DiasDeAlquiler { get; set; }
         public float Precio { get; set; }
         public virtual ICollection<Pelicula> Peliculas { get; set; }

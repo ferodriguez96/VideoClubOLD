@@ -11,8 +11,7 @@ namespace VideoClub.Models
     {
         [Key]
         public Guid Id { get; set; }
-
-        [ForeignKey("Pelicula")]
+        
         public Guid PeliculaId { get; set; }
         public virtual Pelicula Pelicula { get; set; }
 

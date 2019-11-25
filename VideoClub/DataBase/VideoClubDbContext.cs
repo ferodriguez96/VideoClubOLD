@@ -9,6 +9,7 @@ namespace VideoClub.DataBase
 {
     public class VideoClubDbContext : DbContext
     {
+        
         public VideoClubDbContext(DbContextOptions<VideoClubDbContext> options) : base(options)
         {
         }
@@ -23,5 +24,6 @@ namespace VideoClub.DataBase
         public DbSet<Alquiler> Alquileres { get; set; }
         public DbSet<Devolucion> Devoluciones { get; set; }
         public DbSet<PeliculaGenero> PeliculasGeneros { get; set; }
+
     }
 }
